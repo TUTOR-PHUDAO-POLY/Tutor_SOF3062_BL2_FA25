@@ -1,4 +1,4 @@
-package com.poly.server.model.response;
+package com.poly.server.B1_CRUD_1Bang.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

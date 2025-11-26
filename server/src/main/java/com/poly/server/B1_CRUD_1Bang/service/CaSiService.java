@@ -1,9 +1,9 @@
-package com.poly.server.service;
+package com.poly.server.B1_CRUD_1Bang.service;
 
-import com.poly.server.entity.CaSi;
-import com.poly.server.model.request.CaSiRequest;
-import com.poly.server.model.response.CaSiResponse;
-import com.poly.server.repository.CaSiRepository;
+import com.poly.server.B1_CRUD_1Bang.repository.CaSiRepository;
+import com.poly.server.B1_CRUD_1Bang.entity.CaSi;
+import com.poly.server.B1_CRUD_1Bang.model.request.CaSiRequest;
+import com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

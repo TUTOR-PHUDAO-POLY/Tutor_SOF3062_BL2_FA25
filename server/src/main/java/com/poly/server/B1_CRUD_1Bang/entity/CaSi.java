@@ -1,4 +1,4 @@
-package com.poly.server.entity;
+package com.poly.server.B1_CRUD_1Bang.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

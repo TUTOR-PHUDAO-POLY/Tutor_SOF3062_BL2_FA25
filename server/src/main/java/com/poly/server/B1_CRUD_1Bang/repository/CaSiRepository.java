@@ -1,7 +1,7 @@
-package com.poly.server.repository;
+package com.poly.server.B1_CRUD_1Bang.repository;
 
-import com.poly.server.entity.CaSi;
-import com.poly.server.model.response.CaSiResponse;
+import com.poly.server.B1_CRUD_1Bang.entity.CaSi;
+import com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +17,7 @@ public interface CaSiRepository extends JpaRepository<CaSi,Integer> {
 
     // xu ly convert trong repository
     @Query("""
-        SELECT new com.poly.server.model.response.CaSiResponse(
+        SELECT new com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse(
             c.id, c.tenCaSi, c.queQuan, c.tuoi, c.sdt
         )
         FROM CaSi c
@@ -25,7 +25,7 @@ public interface CaSiRepository extends JpaRepository<CaSi,Integer> {
     List<CaSiResponse>hienThiDanhSachCaSi();
 
     @Query("""
-        SELECT new com.poly.server.model.response.CaSiResponse(
+        SELECT new com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse(
             c.id, c.tenCaSi, c.queQuan, c.tuoi, c.sdt
         )
         FROM CaSi c
@@ -34,7 +34,7 @@ public interface CaSiRepository extends JpaRepository<CaSi,Integer> {
     CaSiResponse detailCaSi(Integer id);
 
     @Query("""
-        SELECT new com.poly.server.model.response.CaSiResponse(
+        SELECT new com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse(
             c.id, c.tenCaSi, c.queQuan, c.tuoi, c.sdt
         )
         FROM CaSi c

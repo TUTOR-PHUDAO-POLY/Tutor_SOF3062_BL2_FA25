@@ -1,8 +1,8 @@
-package com.poly.server.controller;
+package com.poly.server.B1_CRUD_1Bang.controller;
 
-import com.poly.server.model.request.CaSiRequest;
-import com.poly.server.model.response.CaSiResponse;
-import com.poly.server.service.CaSiService;
+import com.poly.server.B1_CRUD_1Bang.model.request.CaSiRequest;
+import com.poly.server.B1_CRUD_1Bang.model.response.CaSiResponse;
+import com.poly.server.B1_CRUD_1Bang.service.CaSiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

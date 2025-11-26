@@ -1,4 +1,4 @@
-package com.poly.server.model.request;
+package com.poly.server.B1_CRUD_1Bang.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
