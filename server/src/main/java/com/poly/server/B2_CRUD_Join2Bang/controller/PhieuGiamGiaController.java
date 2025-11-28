@@ -3,7 +3,9 @@ package com.poly.server.B2_CRUD_Join2Bang.controller;
 import com.poly.server.B2_CRUD_Join2Bang.model.request.PhieuGiamGiaRequest;
 import com.poly.server.B2_CRUD_Join2Bang.model.response.PhieuGiamGiaResponse;
 import com.poly.server.B2_CRUD_Join2Bang.service.PhieuGiamGiaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,12 +42,17 @@ public class PhieuGiamGiaController {
     }
 
     @PostMapping("add")
-    public void add(@RequestBody PhieuGiamGiaRequest request) {
+    public void add(@Valid @RequestBody PhieuGiamGiaRequest request) {
         pggService.addPhieuGiamGia(request);
     }
 
     @PutMapping("update/{id}")
-    public void update(@RequestBody PhieuGiamGiaRequest request, @PathVariable("id") Integer id) {
+    public void update(@Valid @RequestBody PhieuGiamGiaRequest request, @PathVariable("id") Integer id) {
         pggService.updatePhieuGiamGia(request, id);
+    }
+
+    @DeleteMapping("delete")
+    public void remove(@RequestParam Integer id){
+        pggService.removePhieuGiamGia(id);
     }
 }

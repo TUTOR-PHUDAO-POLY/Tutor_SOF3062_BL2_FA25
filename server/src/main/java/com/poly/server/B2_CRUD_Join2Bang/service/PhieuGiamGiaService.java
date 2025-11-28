@@ -2,6 +2,7 @@ package com.poly.server.B2_CRUD_Join2Bang.service;
 
 import com.poly.server.B2_CRUD_Join2Bang.entity.LoaiPhieuGiamGia;
 import com.poly.server.B2_CRUD_Join2Bang.entity.PhieuGiamGia;
+import com.poly.server.B2_CRUD_Join2Bang.exception.ApiException;
 import com.poly.server.B2_CRUD_Join2Bang.model.request.PhieuGiamGiaRequest;
 import com.poly.server.B2_CRUD_Join2Bang.model.response.PhieuGiamGiaResponse;
 import com.poly.server.B2_CRUD_Join2Bang.repository.LoaiPhieuGiamGiaRepository;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PhieuGiamGiaService {
@@ -29,6 +31,16 @@ public class PhieuGiamGiaService {
     }
 
     public PhieuGiamGiaResponse getOne(Integer id) {
+        // check ton tai
+        // C1:
+//        PhieuGiamGiaResponse pgg = pggRepository.detailPhieuGiamGia(id);
+//        if (Objects.isNull(pgg)) {
+//            throw new ApiException("Phieu giam gia khong ton tai", "P01");
+//        }
+//        return pgg;
+        // C2:
+        pggRepository.findById(id).orElseThrow(
+                ()-> new ApiException("Phieu giam gia khong ton tai", "P01"));
         return pggRepository.detailPhieuGiamGia(id);
     }
 
@@ -38,6 +50,9 @@ public class PhieuGiamGiaService {
     }
 
     public void removePhieuGiamGia(Integer id) {
+        // check ton tai
+        pggRepository.findById(id).orElseThrow(
+                ()-> new ApiException("Phieu giam gia khong ton tai", "P01"));
         pggRepository.deleteById(id);
     }
 
@@ -52,6 +67,8 @@ public class PhieuGiamGiaService {
     }
 
     public void updatePhieuGiamGia(PhieuGiamGiaRequest request, Integer idCanUpdate) {
+        // check ton tai
+
         PhieuGiamGia pgg = pggRepository.findById(idCanUpdate).get();
         BeanUtils.copyProperties(request, pgg); // Mapping thong qua ten cua thuoc tinh
         // id cua loai phieu giam gia => tim duoc loai phieu gia trong csdl roi set lai ve cho object pgg
